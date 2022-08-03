@@ -212,9 +212,6 @@ az account set --subscription "$TARGET_SUBSCRIPTION_ID"
 # Set target server password
 export PGPASSWORD=$TARGET_PASSWORD
 
-# Create the target database
-az postgres db create -g "$TARGET_RESOURCE_GROUP_NAME" -s "$TARGET_SERVER_NAME" -n "$TARGET_DATABASE_NAME"
-
 # Create firewall rule on the target server to allow connections from current VM
 az postgres server firewall-rule create -g "$TARGET_RESOURCE_GROUP_NAME" -s "$TARGET_SERVER_NAME" -n "$FIREWALLRULENAME" --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255"
 

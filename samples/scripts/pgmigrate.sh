@@ -174,7 +174,6 @@ if ! [ -x "$(command -v pg_restore)" ]; then
 fi
 
 # Login to source subscription
-az login
 az account set --subscription "$SOURCE_SUBSCRIPTION_ID"
 
 # Set PG SSL Mode

@@ -226,9 +226,6 @@ az account set --subscription "$TARGET_SUBSCRIPTION_ID"
 # Set target server password
 export PGPASSWORD=$TARGET_PASSWORD
 
-# Create the target server in the specified region
-az postgres server create -l "$TARGET_REGION" -g "$TARGET_RESOURCE_GROUP_NAME" -n "$TARGET_SERVER_NAME" -u "$TARGET_USERNAME" -p "$PGPASSWORD" --sku-name "$TARGET_SKU"
-
 # Create the target database
 az postgres db create -g "$TARGET_RESOURCE_GROUP_NAME" -s "$TARGET_SERVER_NAME" -n "$TARGET_DATABASE_NAME"
 

@@ -34,7 +34,6 @@
 #         --source-database-name 'sourcedb'
 #         --target-subscription-id 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 #         --target-resource-group-name 'targetRG'
-#         --target-region 'eastus'
 #         --target-server-name 'targetpg'
 #         --target-username 'targetuser'
 #         --target-password 'P@ssw0rd2'
@@ -79,7 +78,6 @@ function usage()
     echo -e "\t--source-database-name 'sourcedb'"
     echo -e "\t--target-subscription-id 'ffffffff-ffff-ffff-ffff-ffffffffffff'"
     echo -e "\t--target-resource-group-name 'targetRG'"
-    echo -e "\t--target-region 'eastus'"
     echo -e "\t--target-server-name 'targetpg'"
     echo -e "\t--target-username 'targetuser'"
     echo -e "\t--target-password 'P@ssw0rd2'"
@@ -124,10 +122,6 @@ while (( "$#" )); do
       ;;
     -h|--target-resource-group-name)
       TARGET_RESOURCE_GROUP_NAME=$2
-      shift 2
-      ;;
-    -i|--target-region)
-      TARGET_REGION=$2
       shift 2
       ;;
     -j|--target-server-name)

@@ -215,18 +215,12 @@ export PGPASSWORD=$TARGET_PASSWORD
 # Create firewall rule on the target server to allow connections from current VM
 az postgres server firewall-rule create -g "$TARGET_RESOURCE_GROUP_NAME" -s "$TARGET_SERVER_NAME" -n "$FIREWALLRULENAME" --start-ip-address "0.0.0.0" --end-ip-address "255.255.255.255"
 
-# Export PG database name to be used by the pg_restore command
-export PGDATABASE=$TARGET_DATABASE_NAME
-
 # Restore the database using source database dump file
 pg_restore -v --no-owner --host="$TARGET_SERVER_NAME.postgres.database.azure.com" --port=5432 --username="$TARGET_USERNAME@$TARGET_SERVER_NAME" --dbname="$TARGET_DATABASE_NAME" "$SOURCE_DATABASE_NAME.dump"
 
 # Delete target firewall rule and local dump file
 az postgres server firewall-rule delete -g "$TARGET_RESOURCE_GROUP_NAME" -s "$TARGET_SERVER_NAME" -n "$FIREWALLRULENAME" --yes
 rm -f "$SOURCE_DATABASE_NAME.dump"
-
-# Logout
-az logout -u "$TARGET_SUBSCRIPTION_ID"
 
 # Visit Target Server
 echo "Migration Successful !!"

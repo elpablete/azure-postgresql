@@ -21,8 +21,7 @@
 # postgresql-client tools - pg_dump and pg_restore (https://www.postgresql.org/download/linux)
 # 
 # NOTE
-# Target server and database are created in this script.
-# Please modify the script to specify different options for creation
+# Target server and database are *NOT* created in this script.
 # https://docs.microsoft.com/en-us/cli/azure/postgres/server?view=azure-cli-latest
 # 
 # USAGE

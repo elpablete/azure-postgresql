@@ -39,7 +39,6 @@
 #         --target-username 'targetuser'
 #         --target-password 'P@ssw0rd2'
 #         --target-database-name 'targetdb'
-#         --target-sku 'GP_Gen5_2'
 #
 
 function usage()
@@ -85,7 +84,6 @@ function usage()
     echo -e "\t--target-username 'targetuser'"
     echo -e "\t--target-password 'P@ssw0rd2'"
     echo -e "\t--target-database-name 'targetdb'"
-    echo -e "\t--target-sku 'GP_Gen5_2'"
     echo ""
 }
 
@@ -146,10 +144,6 @@ while (( "$#" )); do
       ;;
     -m|--target-database-name)
       TARGET_DATABASE_NAME=$2
-      shift 2
-      ;;
-    -n|--target-sku)
-      TARGET_SKU=$2
       shift 2
       ;;
     --) # end argument parsing
